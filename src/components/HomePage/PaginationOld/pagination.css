@@ -1,0 +1,36 @@
+.hidden {
+    visibility: hidden;
+}
+
+button {
+    border: none;
+    min-width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    border: 1px solid #333;
+}
+
+button:focus {
+    outline: none;
+}
+
+span.mini2 {
+    display: inline-block;
+    min-width: 60px;
+}
+
+span.mini1 {
+    display: inline-block;
+    min-width: 30px;
+}
+
+.currentPage {
+    border: 1px solid gray;
+    cursor: default;
+    color: #777;
+}
