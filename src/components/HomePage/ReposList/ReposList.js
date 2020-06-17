@@ -1,12 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import RepoItem from '../RepoItem/RepoItem';
 
-const RepoList = () => {
+const RepoList = ({ reposArr, lastCommitsArr }) => {
   return (
     <>
-      <RepoItem/>
+      {reposArr.map((repo, index) => 
+              <RepoItem key={repo.id} repo={repo} lastCommitDate={lastCommitsArr[index]}/>
+      )}
     </>
   )
 };
 
-export default RepoList;
+const mapStateToProps = (state) => ({
+  reposArr: state.repos.reposArr,
+  lastCommitsArr: state.commits.lastCommitsArr,
+  isFetching: state.repos.isFetching
+})
+
+export default connect(mapStateToProps)(RepoList);

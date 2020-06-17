@@ -1,5 +1,6 @@
 import {setCurrentPage, setPerPage, setQuery, getRepos } from './reposWithCommitsAndContributors/actions';
 import { getMostActiveContributors } from './mostActiveContributors/actions';
+import { getLanguages } from './languages/actions';
 
 const debugStore = (store, isDebugging) => {
   if (isDebugging) {
@@ -9,6 +10,7 @@ const debugStore = (store, isDebugging) => {
     //store.dispatch(setCurrentPage(5));
     // store.dispatch(setPerPage(50));
     // store.dispatch(setQuery('react'))
+    // store.dispatch(getLanguages('https://api.github.com/repos/freeCodeCamp/freeCodeCamp/languages'));
   } 
 };
 

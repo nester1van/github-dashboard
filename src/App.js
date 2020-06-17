@@ -18,7 +18,7 @@ function App() {
             <Route exact path="/">
               <HomePage/>
             </Route>
-            <Route path="/repocard">
+            <Route path="/repocard/:id">
               <RepoCardPage/>
             </Route>
           </Switch>

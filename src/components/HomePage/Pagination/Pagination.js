@@ -8,13 +8,14 @@ const Pagination = ({ totalCount, currentPage, perPage, setCurrentPage }) => {
   let max = Math.ceil(totalCount / perPage);
   // Численные кнопки :
   const buttonNum = (num) => {
-    const classCurrentPage = num == currentPage ? 'currentPage ' : '';
+    const classCurrentPage = num === currentPage ? 'currentPage ' : '';
     return (
       <button 
+        key={num}
         onClick={handleClick} 
         value ={num}
         className={classCurrentPage}
-        disabled={num == currentPage}
+        disabled={num === currentPage}
         hidden = {num < min || num > max}>
           {num}
       </button>
