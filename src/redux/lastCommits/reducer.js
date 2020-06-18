@@ -1,19 +1,22 @@
-import { REQ_COMMITS, RES_COMMITS, ERR_COMMITS } from './actions';
+import { REQ_COMMITS, RES_COMMITS, RES_COMMIT, ERR_COMMITS } from './actions';
 
 // initial state
 const initialCommits = {
+  lastCommit: '',
   lastCommitsArr: [],
   status: 'success',
   isFetching: false
 };
 
 const commits = (state = initialCommits, action) => {
-  const {type, lastCommitsArr, status, isFetching} = action;
+  const {type, lastCommitsArr, lastCommit, status, isFetching} = action;
   switch (type) {
     case REQ_COMMITS:
       return {...state, isFetching};
     case RES_COMMITS:
-      return {lastCommitsArr, status, isFetching};
+      return {...state, lastCommitsArr, status, isFetching};
+    case RES_COMMIT:
+      return {...state, lastCommit, status, isFetching};
     case ERR_COMMITS:
       return {...state, status, isFetching};
     default:

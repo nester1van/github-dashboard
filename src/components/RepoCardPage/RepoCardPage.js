@@ -1,28 +1,17 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import RepoUserAvatar from './RepoUserAvatar/RepoUserAvatar';
-import RepoCard from './RepoCard/RepoCard';
-import { getMostActiveContributors } from '../../redux/mostActiveContributors/actions';
-import { getLanguages } from '../../redux/languages/actions';
+import { getRepoById } from '../../redux/repoById/actions';
 import formatDate from '../../js/formatDate';
 
-const RepoCardPage = ({ reposArr, lastCommitsArr, 
-  mostActiveContributorsArr, getMostActiveContributors, 
-  languagesObj, getLanguages }) => {
-
+const RepoCardPage = ({ lastCommit, 
+  mostActiveContributorsArr,languagesObj, repo, getRepoById }) => {
   let id = useParams();
-
-  const repo = reposArr.filter(repo => repo.id === parseInt(id.id))[0];
-  const repoIndex = reposArr.findIndex(repo => repo.id === parseInt(id.id));
-  const lastCommit = lastCommitsArr[repoIndex];
-  console.log(lastCommit);
-  const { contributorsUrl, fullName, stargazersCount, avatarUrl,
-          login, userUrl, description, languagesUrl } = repo;
+  const { fullName, stargazersCount, avatarUrl,
+          login, userUrl, description } = repo;
 
   useEffect(() => {
-    getMostActiveContributors(contributorsUrl, 10);
-    getLanguages(languagesUrl);
+    getRepoById(id.id);
   }, []);
 
   return (
@@ -35,19 +24,16 @@ const RepoCardPage = ({ reposArr, lastCommitsArr,
       <p>languages: {Object.keys(languagesObj).join(', ')}</p>
       <p>description: {description}</p>
       <p>most active contributors: {mostActiveContributorsArr.join(', ')}</p>
-    
-      {/* <RepoUserAvatar/>
-      <RepoCard/> */}
       <Link to="/">Back to repos list</Link>
     </>
   )
 };
 
 const mapStateToProps = (state) => ({
-  reposArr: state.repos.reposArr,
-  lastCommitsArr: state.commits.lastCommitsArr,
+  lastCommit: state.commits.lastCommit,
   mostActiveContributorsArr: state.contributors.mostActiveContributorsArr,
-  languagesObj: state.languages.languagesObj
+  languagesObj: state.languages.languagesObj,
+  repo: state.repo.repo
 });
 
-export default connect(mapStateToProps, {getMostActiveContributors, getLanguages})(RepoCardPage);
+export default connect(mapStateToProps, {getRepoById})(RepoCardPage);

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPage } from '../../../redux/reposWithCommitsAndContributors/actions';
+import { setCurrentPage, getRepos } from '../../../redux/reposWithCommitsAndContributors/actions';
 import './pagination.css';
 
-const Pagination = ({ totalCount, currentPage, perPage, setCurrentPage }) => {  
+const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, getRepos }) => {  
   const min = 1;
-  let max = Math.ceil(totalCount / perPage);
+  let max = Math.min(Math.ceil(totalCount / perPage), Math.ceil(1000 / perPage)) ;
+
   // Численные кнопки :
   const buttonNum = (num) => {
     const classCurrentPage = num === currentPage ? 'currentPage ' : '';
@@ -108,18 +109,24 @@ const Pagination = ({ totalCount, currentPage, perPage, setCurrentPage }) => {
   // Обработчики кликов на кнопки меньше или больше :
   const handleClickLess = () => {
       if (currentPage > min) {
+          localStorage.setItem('currentPage', currentPage - 1);
           setCurrentPage(currentPage - 1);
+          getRepos(query, perPage, currentPage - 1);
       }
   } 
   const handleClickGreater = () => {
       if (currentPage < max) {
+          localStorage.setItem('currentPage', currentPage + 1);
           setCurrentPage(currentPage + 1);
+          getRepos(query, perPage, currentPage + 1);
       }
   }
   // Обработчик кликов на кнопки с value
   const handleClick = (e) => {
     const val = parseInt(e.target.value);
+    localStorage.setItem('currentPage', val);
     setCurrentPage(val);
+    getRepos(query, perPage, val);
   }
   
   return (
@@ -138,7 +145,8 @@ const Pagination = ({ totalCount, currentPage, perPage, setCurrentPage }) => {
 const mapStateToProps = (state) => ({
   totalCount: state.repos.totalCount,
   currentPage: state.repos.currentPage,
+  query: state.repos.query,
   perPage: state.repos.perPage
 });
 
-export default connect(mapStateToProps, {setCurrentPage})(Pagination);
+export default connect(mapStateToProps, {setCurrentPage, getRepos})(Pagination);

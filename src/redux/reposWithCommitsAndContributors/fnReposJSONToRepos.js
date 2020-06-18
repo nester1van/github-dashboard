@@ -1,7 +1,3 @@
-
-
-
-
 export default function fnReposJSONToRepos(json) {
   let { total_count: totalCount, items } = json; 
   let reposArr = items.map(item => {

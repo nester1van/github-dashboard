@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
-import { getRepos, setQuery } from '../../../redux/reposWithCommitsAndContributors/actions';
+import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommitsAndContributors/actions';
 
-const SearchRepos = ({currentPage, perPage, query, getRepos, setQuery}) => {
+let componentDidMount = false;
+const SearchRepos = ({totalCount, currentPage, perPage, query, getRepos, setQuery, setCurrentPage}) => {  
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -10,10 +11,35 @@ const SearchRepos = ({currentPage, perPage, query, getRepos, setQuery}) => {
   };
 
   useEffect(() => {
-    let timerId = setTimeout(() => {
-      getRepos(query, perPage, currentPage);
-    }, 1000);
-    return () => clearTimeout(timerId);
+    //localStorage.setItem('test', 1);
+    //console.log(localStorage.getItem('test'));
+    // currentPage query
+
+    //componentDidMount = true;
+  }, []);
+
+  useEffect(() => {
+    // max = Math.ceil(totalCount / perPage);
+    // if (currentPage > max) {
+    //   setCurrentPage(max);
+    //   currentPage = max;
+    // }
+    let timerId;
+    if (componentDidMount) {
+      timerId = setTimeout(() => {
+        if (localStorage.getItem('query') !== query) {
+          localStorage.setItem('query', query);
+          localStorage.setItem('currentPage', 1);
+          setCurrentPage(1);
+          getRepos(query, perPage, 1);
+        } else {
+          //getRepos(query, perPage, currentPage);
+        }
+      }, 1000);
+    }
+    return () => {
+      componentDidMount = true;
+      clearTimeout(timerId);}
   }, [query]);
 
 
@@ -29,9 +55,10 @@ const SearchRepos = ({currentPage, perPage, query, getRepos, setQuery}) => {
 };
 
 const mapStateToProps = (state) => ({
+  totalCount: state.repos.totalCount,
   currentPage: state.repos.currentPage,
   perPage: state.repos.perPage,
   query: state.repos.query
 });
 
-export default connect(mapStateToProps, {getRepos, setQuery})(SearchRepos);
+export default connect(mapStateToProps, {getRepos, setQuery, setCurrentPage})(SearchRepos);
