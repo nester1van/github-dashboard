@@ -1,7 +1,7 @@
 import fnRepoByIdJSONToRepo from './fnRepoByIdJSONToRepo';
 import { getLanguages } from '../languages/actions';
 import { getMostActiveContributors } from '../mostActiveContributors/actions';
-import { getArrCommits } from '../lastCommits/actions';
+import { getLastCommit } from '../lastCommit/actions';
 
 // action types 
 // https://api.github.com/repositories/11730342
@@ -39,7 +39,7 @@ export const getRepoById = (id) => (dispatch) => {
         dispatch(resRepoById(fnRepoByIdJSONToRepo(json)));
         getLanguages(json.languages_url)(dispatch);
         getMostActiveContributors(json.contributors_url, 10)(dispatch);
-        getArrCommits([json.commits_url.replace('{/sha}', '')])(dispatch);
+        getLastCommit(json.commits_url.replace('{/sha}', ''))(dispatch);
       } else {
         dispatch(errRepoByID());
       };

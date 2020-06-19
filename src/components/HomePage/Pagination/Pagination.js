@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCurrentPage, getRepos } from '../../../redux/reposWithCommitsAndContributors/actions';
+import { setCurrentPage, getRepos } from '../../../redux/reposWithCommits/actions';
 import './pagination.css';
 
 const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, getRepos }) => {  

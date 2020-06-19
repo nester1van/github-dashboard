@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
-import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommitsAndContributors/actions';
+import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommits/actions';
 
 let componentDidMount = false;
 const SearchRepos = ({totalCount, currentPage, perPage, query, getRepos, setQuery, setCurrentPage}) => {  

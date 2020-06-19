@@ -45,10 +45,8 @@ export const getArrCommits = (arrCommitsUrl) => async (dispatch) => {
   });
   await Promise.all(commitsPromise);
   let lastCommitsArr = fnCommitsJSONToLastCommits(commitsJSON);
-  if (lastCommitsArr.length > 1) {
+  if (Array.isArray(lastCommitsArr) && lastCommitsArr.length > 0) {
     dispatch(resCommits(lastCommitsArr));
-  } else if (lastCommitsArr.length === 1){
-    dispatch(resCommit(lastCommitsArr[0]));
   } else {
     dispatch(errCommits());
   };

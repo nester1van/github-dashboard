@@ -1,16 +1,19 @@
 import { combineReducers } from 'redux';
-import repos from './reposWithCommitsAndContributors/reducer';
+import repos from './reposWithCommits/reducer';
 import commits from './lastCommits/reducer';
+import repo from './repoById/reducer';
+import commit from './lastCommit/reducer';
 import contributors from './mostActiveContributors/reducer';
 import languages from './languages/reducer';
-import repo from './repoById/reducer';
+
 
 const reducers = combineReducers({
   repos,
   commits,
+  repo,
+  commit,
   contributors,
-  languages,
-  repo
+  languages
 });
 
 export default reducers;

@@ -30,7 +30,7 @@ const RepoCardPage = ({ lastCommit,
 };
 
 const mapStateToProps = (state) => ({
-  lastCommit: state.commits.lastCommit,
+  lastCommit: state.commit.lastCommit,
   mostActiveContributorsArr: state.contributors.mostActiveContributorsArr,
   languagesObj: state.languages.languagesObj,
   repo: state.repo.repo

@@ -1,4 +1,4 @@
-import {setCurrentPage, setPerPage, setQuery, getRepos } from './reposWithCommitsAndContributors/actions';
+import {setCurrentPage, setPerPage, setQuery, getRepos } from './reposWithCommits/actions';
 import { getMostActiveContributors } from './mostActiveContributors/actions';
 import { getLanguages } from './languages/actions';
 import { getRepoById } from './repoById/actions';

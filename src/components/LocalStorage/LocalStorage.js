@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setQuery, setCurrentPage, getRepos } from '../../redux/reposWithCommitsAndContributors/actions';
+import { setQuery, setCurrentPage, getRepos } from '../../redux/reposWithCommits/actions';
 
 const LocalStorage = ({ children, setQuery, setCurrentPage, getRepos, perPage }) => {
 
