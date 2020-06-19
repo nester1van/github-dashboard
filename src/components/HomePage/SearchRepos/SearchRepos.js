@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommits/actions';
 
-
-const SearchRepos = ({totalCount, currentPage, perPage, query, getRepos, setQuery, setCurrentPage}) => {  
+const SearchRepos = ({perPage, query, getRepos, setQuery, setCurrentPage}) => {  
   
   const handleChange = (e) => {
     const value = e.target.value;
@@ -11,7 +10,7 @@ const SearchRepos = ({totalCount, currentPage, perPage, query, getRepos, setQuer
   };
 
   useEffect(() => {
-      let   timerId = setTimeout(() => {
+      let timerId = setTimeout(() => {
         if (localStorage.getItem('query') !== query) {
           localStorage.setItem('query', query);
           localStorage.setItem('currentPage', 1);
@@ -35,8 +34,6 @@ const SearchRepos = ({totalCount, currentPage, perPage, query, getRepos, setQuer
 };
 
 const mapStateToProps = (state) => ({
-  totalCount: state.repos.totalCount,
-  currentPage: state.repos.currentPage,
   perPage: state.repos.perPage,
   query: state.repos.query
 });
