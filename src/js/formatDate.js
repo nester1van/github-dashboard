@@ -6,8 +6,7 @@ const formatDate = (date) => {
         'September', 'October', 'November', 'December'];
     const month = months[objDate.getMonth()];
     const year = objDate.getFullYear();
-    return `${day} ${month} ${year}`
-    return objDate.getDate();
+    return `${day} ${month} ${year}`;
 };
 
 export default formatDate;
