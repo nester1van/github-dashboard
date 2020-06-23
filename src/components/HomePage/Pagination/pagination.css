@@ -19,11 +19,11 @@
   border-radius: 3px;
 }
 
-button:hover {
+.pagination > button:hover {
   border: 1px solid #44AAFF;
 }
 
-button:focus {
+.pagination > button:focus {
   outline: none;
 }
 

@@ -18,7 +18,7 @@ const RepoItem = ({ repo, lastCommitDate, isFetching, status }) => {
       isFetching ? 
         <span id="loading">loading..</span> :
         status === 'error' ? 
-        <span className="error">error response GitHub</span> :
+        <span id="error">error response GitHub</span> :
         <span> {formatedDate}</span>
     );
   };

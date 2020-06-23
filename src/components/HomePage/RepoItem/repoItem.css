@@ -1,7 +1,3 @@
-.repoItem:first-child {
-  margin-top: 10px;
-}
-
 .repoItem {
   padding: 10px;
   margin-bottom: 10px;
@@ -11,6 +7,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.repoItem:first-child {
+  margin-top: 10px;
 }
 
 .repoItem:hover {
@@ -34,19 +34,15 @@ div.fullName > a:hover {
   text-decoration: underline;
 }
 
-div.lastCommit {
-  
-}
-
 div.lastCommit > span {
   padding-left: 0.5rem;
 }
 
-#loading {
+div.lastCommit > #loading {
   color: #FAD713;
 }
 
-div.lastCommit > span.error {
+div.lastCommit > #error {
   color: #F06063;
 }
 
@@ -81,8 +77,6 @@ div.gitLink > a:hover {
   .repoItem > div.stars {
     flex: 1 0 100px;
   }
-
-
 
   .repoItem > div.gitLink {
     flex: 1 0 120px;
