@@ -1,0 +1,97 @@
+.repoCardPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  border: 1px solid #44AAFF;
+  box-shadow: 0px 0px 5px #44AAFF;
+  padding: 10px;
+}
+
+p.error {
+  color: #F06063;
+  flex: 1 0 100%;
+}
+
+p.loading {
+  color: #FAD713;
+  flex: 1 0 100%;
+}
+
+p.fullName {
+  color: #97CF26;
+  flex: 1 0 33.3333%;
+}
+
+p.star {
+  color: #FAD713;
+  flex: 1 0 33.3333%;
+}
+
+p.lastCommit {
+  flex: 1 0 33.3333%;
+}
+
+p.avatar {
+  flex: 0 0 33.3333%;
+}
+
+p.avatar > img {
+  width: 50px;
+  height: 50px;
+}
+
+p.login {
+  flex: 0 0 33.3333%;
+  align-self: center;
+}
+
+p.login > a {
+  color: #A168F7;
+  text-decoration: none;
+}
+
+p.login > a:hover {
+  text-decoration: underline;
+}
+
+p.languages {
+  flex: 1 0 100%;
+}
+
+p.description {
+
+}
+
+p.contributors {
+  margin-bottom: 20px;
+}
+
+.backTo {
+  color: #A168F7;
+  text-decoration: none;
+}
+
+.backTo:hover {
+  text-decoration: underline;
+}
+
+
+
+@media screen and (min-width: 1200px) {
+  .repoCardPage {
+    max-width: 1100px;
+    margin: 50px auto;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .repoCardPage {
+    margin: 50px 10px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .repoCardPage {
+    display: block;
+  }
+}

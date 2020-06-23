@@ -130,7 +130,7 @@ const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, g
   }
   
   return (
-    <>
+    <div className="pagination">
       {buttonLess()}
       {buttonNumMin()}
       {buttonDotLeft()}
@@ -138,7 +138,7 @@ const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, g
       {buttonDotRight()}
       {buttonNumMax()}
       {buttonMore()}
-    </>
+    </div>
   )
 };
 

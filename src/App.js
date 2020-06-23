@@ -8,6 +8,7 @@ import { BrowserRouter,
 import LocalStorage from './components/LocalStorage/LocalStorage';
 import HomePage     from './components/HomePage/HomePage';
 import RepoCardPage from './components/RepoCardPage/RepoCardPage';
+import './app.css';
 
 function App() {
 

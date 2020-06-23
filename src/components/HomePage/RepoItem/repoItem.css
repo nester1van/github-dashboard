@@ -1,3 +1,113 @@
+.repoItem:first-child {
+  margin-top: 10px;
+}
+
 .repoItem {
-  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #44AAFF;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repoItem:hover {
+  box-shadow: 3px 3px 3px rgba(68, 170, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.repoItem > div {
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+div.fullName > a {
+  color: #97CF26;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div.fullName > a:hover {
+  text-decoration: underline;
+}
+
+div.lastCommit > span {
+  padding-left: 0.5rem;
+}
+
+div.lastCommit > span.loading {
+  color: #FAD713;
+}
+
+div.lastCommit > span.error {
+  color: #F06063;
+}
+
+div.stars > span {
+  color: #FAD713;
+}
+
+div.gitLink > a {
+  color: #A168F7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div.gitLink > a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 1200px) {
+  .repoItem > div {
+    padding: 10px 15px;
+    min-height: 80px;
+  }
+
+  .repoItem > div.fullName {
+    flex: 1 0 35%;
+  }
+
+  .repoItem > div.lastCommit {
+    flex: 1 0 30%;
+  }
+
+  .repoItem > div.stars {
+    flex: 1 0 100px;
+  }
+
+
+
+  .repoItem > div.gitLink {
+    flex: 1 0 120px;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+  .repoItem {
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 441px) {
+  .repoItem {
+    margin: 10px;
+  }
+
+  .repoItem > div {
+    flex: 1 1 50%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .repoItem {
+    margin: 10px;
+  }
+
+  .repoItem > div {
+    flex: 0 0 100%;
+  }
 }

@@ -3,22 +3,23 @@ import { connect } from 'react-redux';
 import SearchRepos from './SearchRepos/SearchRepos';
 import RepoList from './ReposList/ReposList';
 import Pagination from './Pagination/Pagination';
+import './homePage.css';
 
 const HomePage = ({ isFetching, status }) => {
   return (
-      <>
+      <div className="homePage">
         <SearchRepos/>
         {isFetching ? 
-          <p>loading..</p> :
+          <p className="loading">loading..</p> :
           status === 'error' ? 
-            <p>error response GitHub</p> :
+            <p className="error">error response GitHub</p> :
             <>
               <RepoList/>
               <Pagination/>
             </>  
         }
         
-      </>
+      </div>
   )
 };
 

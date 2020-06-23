@@ -1,36 +1,55 @@
-.hidden {
-    visibility: hidden;
+.pagination {
+  margin: 10px auto;
+  max-width: 50%;
+  text-align: center;
 }
 
-button {
-    border: none;
-    min-width: 30px;
-    height: 30px;
-    background: transparent;
-    cursor: pointer;
-    border-radius: 3px;
+.hidden {
+  visibility: hidden;
+}
+
+.pagination > button {
+  margin: 5px;
+  font-size: 20px;
+  border: none;
+  min-width: 30px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 button:hover {
-    border: 1px solid #333;
+  border: 1px solid #44AAFF;
 }
 
 button:focus {
-    outline: none;
-}
-
-span.mini2 {
-    display: inline-block;
-    min-width: 60px;
-}
-
-span.mini1 {
-    display: inline-block;
-    min-width: 30px;
+  outline: none;
 }
 
 .currentPage {
-    border: 1px solid gray;
-    cursor: default;
-    color: #777;
+  border: 1px solid rgba(68, 170, 255, 0.5) !important;
+  cursor: default;
+  color: #777;
+}
+
+.currentPage:hover {
+  border: 1px solid rgba(68, 170, 255, 0.5);
+}
+
+@media screen and (max-width: 440px) {
+  .pagination {
+      max-width: 100%;
+  }
+
+  .pagination > button {
+    margin: 3px;
+    font-size: 16px;
+    border: none;
+    min-width: 22px;
+    height: 22px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 3px;
+  }
 }

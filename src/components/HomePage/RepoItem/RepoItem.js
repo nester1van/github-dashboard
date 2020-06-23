@@ -1,29 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import formatDate from '../../../js/formatDate';
 import './repoItem.css';
 
-const RepoItem = ({ repo, lastCommitDate }) => {
+const RepoItem = ({ repo, lastCommitDate, isFetching, status }) => {
   const { fullName, id ,htmlUrl, stargazersCount } = repo;
 
   const formatedDate = formatDate(lastCommitDate);
 
   const goToRepo = () => {
     return htmlUrl;
-  }
+  };
+
+  const fnCommitDate = () => {
+    return (
+        isFetching ? 
+          <span className="loading">loading..</span> :
+          status === 'error' ? 
+          <span className="error"> error response GitHub</span> :
+          <span> {formatedDate}</span>
+    );
+  };
 
   return (
     <div className="repoItem">
-      <p><Link to={`/repocard/${id}`}>{fullName}</Link></p>
-      <p><a href={goToRepo()}>link to github</a></p>
-      <p>last commit date: {formatedDate}</p>
-      <p>&#9734; {stargazersCount}</p>
-      {/* <p>[Название репозитория] - full_name</p>
-      <p>[кол-во звёзд на github] - stargazers_count</p>
-      <p>[дата последнего коммита] - commits_url</p>
-      <p>[ссылка на Github] - html_url</p> */}
+      <div className="fullName"><Link to={`/repocard/${id}`}>{fullName}</Link></div>
+      <div className="lastCommit">latest commit on{fnCommitDate()}</div>
+      <div className="stars"><span>&#9733;</span> {stargazersCount}</div>
+      <div className="gitLink"><a href={goToRepo()}>link to github</a></div>
     </div>
   ) 
 };
 
-export default RepoItem;
+const mapStateToProps = (state) => ({
+  isFetching: state.commits.isFetching,
+  status: state.commits.status
+});
+
+export default connect(mapStateToProps, {})(RepoItem);

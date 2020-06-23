@@ -1,0 +1,27 @@
+.searchRepos {
+  margin: 10px auto;
+  max-width: 50%;
+}
+
+.searchRepos > input {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  padding: 10px;
+  color: #333;
+  border: 1px solid #44AAFF;
+  border-radius: 3px;
+}
+
+.searchRepos > input:focus {
+  outline: none;
+  border: 1.5px solid #44AAFF;
+}
+
+@media screen and (max-width: 440px) {
+  .searchRepos {
+    margin: 10px;
+    max-width: 100%;
+  }
+}

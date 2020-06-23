@@ -4,7 +4,7 @@ import {  SET_CURRENT_PAGE, SET_PER_PAGE, SET_QUERY ,
 const initialRepos = {
   reposArr: [],
   currentPage: 1,
-  perPage: 2,
+  perPage: 10,
   query: '',
   totalCount: 1,
   status: 'success',

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommits/actions';
+import './searchRepos.css';
 
 const SearchRepos = ({perPage, query, getRepos, setQuery, setCurrentPage}) => {  
   
@@ -23,13 +24,13 @@ const SearchRepos = ({perPage, query, getRepos, setQuery, setCurrentPage}) => {
   }, [query]);
 
   return (
-    <>
+    <div className="searchRepos">
       <input 
         onChange={handleChange}
         type="search" 
         placeholder="search.." 
         value={query}/>
-    </>
+    </div>
   )
 };
 
