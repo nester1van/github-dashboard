@@ -37,7 +37,7 @@ export const getArrCommits = (arrCommitsUrl) => async (dispatch) => {
   dispatch(reqCommits());
   let commitsJSON = [], commitsPromise = [];
   arrCommitsUrl.forEach((commitsUrl, index) => {
-    commitsPromise[index] = fetch(commitsUrl)
+    commitsPromise[index] = fetch(`${commitsUrl}?per_page=1&page=1`)
     .then(res => res.json())
     .then(json => {
       commitsJSON[index] = json; 
