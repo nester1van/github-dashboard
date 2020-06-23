@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getRepoById } from '../../redux/repoById/actions';
-import formatDate from '../../js/formatDate';
+import { Link, useParams }  from 'react-router-dom';
+import { connect }          from 'react-redux';
+import { getRepoById }      from '../../redux/repoById/actions';
+import formatDate           from '../../js/formatDate';
 import './repoCardPage.css';
 
-const RepoCardPage = ({ lastCommit, mostActiveContributorsArr,languagesObj, 
-  repo, getRepoById, isFetchingRepo, statusRepo, isFetchingCommit, 
-  statusCommit, isFetchingContributors, statusContributors, 
-  isFetchingLanguages, statusLanguages}) => {
+const RepoCardPage = ({ 
+  repo, getRepoById, isFetchingRepo, statusRepo,
+  lastCommit, isFetchingCommit, statusCommit, 
+  mostActiveContributorsArr, isFetchingContributors, statusContributors, 
+  languagesObj, isFetchingLanguages, statusLanguages}) => {
   let id = useParams();
   const { fullName, stargazersCount, avatarUrl,
           login, userUrl, description } = repo;
@@ -27,7 +28,7 @@ const RepoCardPage = ({ lastCommit, mostActiveContributorsArr,languagesObj,
           status === 'error' ? 
           <span className="error"> error response GitHub</span> :
           <span>{data}</span>
-    );
+    )
   };
 
   return (
@@ -64,16 +65,16 @@ const RepoCardPage = ({ lastCommit, mostActiveContributorsArr,languagesObj,
 };
 
 const mapStateToProps = (state) => ({
-  lastCommit: state.commit.lastCommit,
-  mostActiveContributorsArr: state.contributors.mostActiveContributorsArr,
-  languagesObj: state.languages.languagesObj,
   repo: state.repo.repo,
   isFetchingRepo: state.repo.isFetching,
   statusRepo: state.repo.status,
+  lastCommit: state.commit.lastCommit,
   isFetchingCommit: state.commit.isFetching,
   statusCommit: state.commit.status,
+  mostActiveContributorsArr: state.contributors.mostActiveContributorsArr,
   isFetchingContributors: state.contributors.isFetching,
   statusContributors: state.contributors.status,
+  languagesObj: state.languages.languagesObj,
   isFetchingLanguages: state.languages.isFetching,
   statusLanguages: state.languages.status
 });

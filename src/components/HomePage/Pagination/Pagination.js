@@ -1,10 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React                        from 'react';
+import { connect }                  from 'react-redux';
 import { setCurrentPage, getRepos } from '../../../redux/reposWithCommits/actions';
 import './pagination.css';
 
 const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, getRepos }) => {  
-  const min = 1;
+  let min = 1;
   let max = Math.min(Math.ceil(totalCount / perPage), Math.ceil(1000 / perPage)) ;
 
   // Численные кнопки :
@@ -108,26 +108,26 @@ const Pagination = ({ totalCount, currentPage, query, perPage, setCurrentPage, g
 
   // Обработчики кликов на кнопки меньше или больше :
   const handleClickLess = () => {
-      if (currentPage > min) {
-          localStorage.setItem('currentPage', currentPage - 1);
-          setCurrentPage(currentPage - 1);
-          getRepos(query, perPage, currentPage - 1);
-      }
-  } 
+    if (currentPage > min) {
+      localStorage.setItem('currentPage', currentPage - 1);
+      setCurrentPage(currentPage - 1);
+      getRepos(query, perPage, currentPage - 1);
+    }
+  };
   const handleClickGreater = () => {
-      if (currentPage < max) {
-          localStorage.setItem('currentPage', currentPage + 1);
-          setCurrentPage(currentPage + 1);
-          getRepos(query, perPage, currentPage + 1);
-      }
-  }
+    if (currentPage < max) {
+      localStorage.setItem('currentPage', currentPage + 1);
+      setCurrentPage(currentPage + 1);
+      getRepos(query, perPage, currentPage + 1);
+    }
+  };
   // Обработчик кликов на кнопки с value
   const handleClick = (e) => {
     const val = parseInt(e.target.value);
     localStorage.setItem('currentPage', val);
     setCurrentPage(val);
     getRepos(query, perPage, val);
-  }
+  };
   
   return (
     <div className="pagination">

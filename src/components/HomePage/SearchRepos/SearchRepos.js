@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux'; 
-import { getRepos, setQuery, setCurrentPage } from '../../../redux/reposWithCommits/actions';
+import { connect }          from 'react-redux'; 
+import { getRepos, 
+         setQuery, 
+         setCurrentPage }   from '../../../redux/reposWithCommits/actions';
 import './searchRepos.css';
 
 const SearchRepos = ({perPage, query, getRepos, setQuery, setCurrentPage}) => {  
@@ -39,4 +41,5 @@ const mapStateToProps = (state) => ({
   query: state.repos.query
 });
 
-export default connect(mapStateToProps, {getRepos, setQuery, setCurrentPage})(SearchRepos);
+export default connect(mapStateToProps, 
+  {getRepos, setQuery, setCurrentPage})(SearchRepos);

@@ -1,5 +1,5 @@
 import fnReposJSONToRepos from './fnReposJSONToRepos';
-import { getArrCommits } from '../lastCommits/actions';
+import { getArrCommits }  from '../lastCommits/actions';
 
 // action types
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
@@ -24,7 +24,6 @@ export const setQuery = (query) => ({
   query
 });
 
-
 const reqRepos = () => ({
   type: REQ_REPOS,
   isFetching: true
@@ -32,9 +31,9 @@ const reqRepos = () => ({
 const resRepos = ({totalCount, reposArr}) => ({
   type: RES_REPOS,
   isFetching: false,
+  status: 'success',
   reposArr,
-  totalCount,
-  status: 'success'
+  totalCount
 });
 const errRepos = () => ({
   type: ERR_REPOS,

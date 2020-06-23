@@ -11,8 +11,8 @@ const reqLanguages = () => ({
 const resLanguages = (languagesObj) => ({
   type: RES_LANGUAGES,
   isFetching: false,
-  languagesObj,
-  status: 'success'
+  status: 'success',
+  languagesObj
 });
 const errLanguages = () => ({
   type: ERR_LANGUAGES,

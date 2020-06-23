@@ -2,20 +2,20 @@ import { REQ_CONTRIBUTORS, RES_CONTRIBUTORS, ERR_CONTRIBUTORS } from './actions'
 
 
 const initialContributors =  {
-  mostActiveContributorsArr: [],
+  isFetching: false,
   status: 'success',
-  isFetching: false
+  mostActiveContributorsArr: []
 };
 
 const contributors = (state = initialContributors, action) => {
-  const {type, mostActiveContributorsArr, status, isFetching} = action;
+  const {type, isFetching, status, mostActiveContributorsArr} = action;
   switch(type) {
     case REQ_CONTRIBUTORS:
       return {...state, isFetching};
     case RES_CONTRIBUTORS:
-      return {mostActiveContributorsArr, status, isFetching};
+      return {isFetching, status, mostActiveContributorsArr};
     case ERR_CONTRIBUTORS:
-      return {...state, status, isFetching};
+      return {...state, isFetching, status};
     default:
       return state;
   };

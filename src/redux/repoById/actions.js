@@ -1,10 +1,9 @@
-import fnRepoByIdJSONToRepo from './fnRepoByIdJSONToRepo';
-import { getLanguages } from '../languages/actions';
-import { getMostActiveContributors } from '../mostActiveContributors/actions';
-import { getLastCommit } from '../lastCommit/actions';
+import fnRepoByIdJSONToRepo           from './fnRepoByIdJSONToRepo';
+import { getLanguages }               from '../languages/actions';
+import { getMostActiveContributors }  from '../mostActiveContributors/actions';
+import { getLastCommit }              from '../lastCommit/actions';
 
 // action types 
-// https://api.github.com/repositories/11730342
 export const REQ_REPO_BY_ID = 'REQ_REPO_BY_ID';
 export const RES_REPO_BY_ID = 'RES_REPO_BY_ID';
 export const ERR_REPO_BY_ID = 'ERR_REPO_BY_ID';
@@ -17,8 +16,8 @@ const reqRepoById = () => ({
 const resRepoById = (repo) => ({
   type: RES_REPO_BY_ID,
   isFetching: false,
-  repo,
-  status: 'success'
+  status: 'success',
+  repo
 });
 const errRepoByID = () => ({
   type: ERR_REPO_BY_ID,

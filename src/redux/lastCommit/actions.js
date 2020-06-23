@@ -14,8 +14,8 @@ export const reqLastCommit = () => ({
 export const resLastCommit = (lastCommit) => ({
   type: RES_LAST_COMMIT,
   isFetching: false,
-  lastCommit, 
-  status: 'success'
+  status: 'success',
+  lastCommit
 });
 
 export const errLastCommit = () => ({

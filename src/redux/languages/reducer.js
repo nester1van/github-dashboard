@@ -2,17 +2,17 @@ import {REQ_LANGUAGES, RES_LANGUAGES, ERR_LANGUAGES} from './actions';
 
 const initialLanguages = {
   isFetching: false,
-  languagesObj: {},
-  status: 'success'
+  status: 'success',
+  languagesObj: {}
 };
 
 const languages = (state = initialLanguages, action) => {
-  const { type, isFetching, languagesObj, status } = action;
+  const { type, isFetching, status, languagesObj } = action;
   switch (type) {
     case REQ_LANGUAGES:
       return {...state, isFetching};
     case RES_LANGUAGES:
-      return {isFetching, languagesObj, status};
+      return {isFetching, status, languagesObj};
     case ERR_LANGUAGES:
       return {...state, isFetching, status};
     default:

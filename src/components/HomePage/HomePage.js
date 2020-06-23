@@ -1,8 +1,8 @@
-import React from 'react';
+import React       from 'react';
 import { connect } from 'react-redux';
 import SearchRepos from './SearchRepos/SearchRepos';
-import RepoList from './ReposList/ReposList';
-import Pagination from './Pagination/Pagination';
+import RepoList    from './ReposList/ReposList';
+import Pagination  from './Pagination/Pagination';
 import './homePage.css';
 
 const HomePage = ({ isFetching, status }) => {

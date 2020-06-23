@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import formatDate from '../../../js/formatDate';
+import React        from 'react';
+import { Link }     from 'react-router-dom';
+import { connect }  from 'react-redux';
+import formatDate   from '../../../js/formatDate';
 import './repoItem.css';
 
 const RepoItem = ({ repo, lastCommitDate, isFetching, status }) => {
@@ -13,14 +13,13 @@ const RepoItem = ({ repo, lastCommitDate, isFetching, status }) => {
     return htmlUrl;
   };
 
-
   const fnCommitDate = () => {
     return (
-        isFetching ? 
-          <span id="loading">loading..</span> :
-          status === 'error' ? 
-          <span className="error">error response GitHub</span> :
-          <span> {formatedDate}</span>
+      isFetching ? 
+        <span id="loading">loading..</span> :
+        status === 'error' ? 
+        <span className="error">error response GitHub</span> :
+        <span> {formatedDate}</span>
     );
   };
 
@@ -39,4 +38,4 @@ const mapStateToProps = (state) => ({
   status: state.commits.status
 });
 
-export default connect(mapStateToProps, {})(RepoItem);
+export default connect(mapStateToProps)(RepoItem);

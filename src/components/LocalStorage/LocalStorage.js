@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { setQuery, setCurrentPage, getRepos } from '../../redux/reposWithCommits/actions';
+import { connect }          from 'react-redux';
+import {  setQuery, 
+          setCurrentPage, 
+          getRepos }        from '../../redux/reposWithCommits/actions';
 
-const LocalStorage = ({ children, setQuery, setCurrentPage, getRepos, perPage }) => {
+const LocalStorage = ({ children, setQuery, setCurrentPage, 
+                        getRepos, perPage }) => {
 
   useEffect(() => {
     if (!localStorage.getItem('query')) {
@@ -21,7 +24,7 @@ const LocalStorage = ({ children, setQuery, setCurrentPage, getRepos, perPage })
 
   return (
     <>
-    {children}
+      {children}
     </>
   )
 
@@ -31,4 +34,5 @@ const mapStateToProps = (state) => ({
   perPage: state.repos.perPage
 });
 
-export default connect(mapStateToProps, {setQuery, setCurrentPage, getRepos})(LocalStorage);
+export default connect(mapStateToProps, 
+  {setQuery, setCurrentPage, getRepos})(LocalStorage);

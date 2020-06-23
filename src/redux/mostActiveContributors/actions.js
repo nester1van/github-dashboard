@@ -1,4 +1,5 @@
-import fnContributorsJSONToMostActiveContributors from './fnContributorsJSONToMostActiveContributors';
+import fnContributorsJSONToMostActiveContributors 
+  from './fnContributorsJSONToMostActiveContributors';
 
 // action types
 export const REQ_CONTRIBUTORS = 'REQ_CONTRIBUTORS';
@@ -13,8 +14,8 @@ export const reqContributors = () => ({
 export const resContributors = (mostActiveContributorsArr) => ({
   type: RES_CONTRIBUTORS,
   isFetching: false,
-  mostActiveContributorsArr,
-  status: 'success'
+  status: 'success',
+  mostActiveContributorsArr
 });
 export const errContributors = () => ({
   type: ERR_CONTRIBUTORS,

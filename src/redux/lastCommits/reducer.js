@@ -2,10 +2,9 @@ import { REQ_COMMITS, RES_COMMITS, RES_COMMIT, ERR_COMMITS } from './actions';
 
 // initial state
 const initialCommits = {
-  lastCommit: '',
-  lastCommitsArr: [],
+  isFetching: false,
   status: 'success',
-  isFetching: false
+  lastCommitsArr: []
 };
 
 const commits = (state = initialCommits, action) => {
@@ -14,11 +13,11 @@ const commits = (state = initialCommits, action) => {
     case REQ_COMMITS:
       return {...state, isFetching};
     case RES_COMMITS:
-      return {...state, lastCommitsArr, status, isFetching};
+      return {...state, isFetching, status, lastCommitsArr};
     case RES_COMMIT:
-      return {...state, lastCommit, status, isFetching};
+      return {...state, isFetching, status};
     case ERR_COMMITS:
-      return {...state, status, isFetching};
+      return {...state, isFetching, status};
     default:
       return state;
   };
