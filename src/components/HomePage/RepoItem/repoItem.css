@@ -34,11 +34,15 @@ div.fullName > a:hover {
   text-decoration: underline;
 }
 
+div.lastCommit {
+  
+}
+
 div.lastCommit > span {
   padding-left: 0.5rem;
 }
 
-div.lastCommit > span.loading {
+#loading {
   color: #FAD713;
 }
 

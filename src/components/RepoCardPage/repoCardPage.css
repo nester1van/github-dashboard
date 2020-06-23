@@ -7,12 +7,12 @@
   padding: 10px;
 }
 
-p.error {
+p.error, span.error {
   color: #F06063;
   flex: 1 0 100%;
 }
 
-p.loading {
+p.loading1, span.loading1 {
   color: #FAD713;
   flex: 1 0 100%;
 }
@@ -59,14 +59,16 @@ p.languages {
 }
 
 p.description {
-
+  flex: 1 0 100%;
 }
 
 p.contributors {
+  flex: 1 0 100%;
   margin-bottom: 20px;
 }
 
 .backTo {
+  flex: 1 0 100%;
   color: #A168F7;
   text-decoration: none;
 }
@@ -93,5 +95,6 @@ p.contributors {
 @media screen and (max-width: 440px) {
   .repoCardPage {
     display: block;
+    margin: 10px;
   }
 }

@@ -13,12 +13,13 @@ const RepoItem = ({ repo, lastCommitDate, isFetching, status }) => {
     return htmlUrl;
   };
 
+
   const fnCommitDate = () => {
     return (
         isFetching ? 
-          <span className="loading">loading..</span> :
+          <span id="loading">loading..</span> :
           status === 'error' ? 
-          <span className="error"> error response GitHub</span> :
+          <span className="error">error response GitHub</span> :
           <span> {formatedDate}</span>
     );
   };
