@@ -1,4 +1,6 @@
 # github-dashboard
+[Live demo](https://github-dashboard.vercel.app)
+
 
 Используя GitHub API реализован GitHub Dashboard, который состоит из двух страниц:
 
